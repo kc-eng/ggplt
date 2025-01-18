@@ -1,0 +1,34 @@
+Package: ggplt
+Title: Collection of R Program Examples
+Version: 0.0.0.9000
+Authors@R: 
+    person("Your", "Name", , "your.email@example.com", role = c("aut", "cre"))
+Description: A collection of R program examples for learning and reference.
+License: MIT + file LICENSE
+URL: https://github.com/kc-eng/ggplt
+BugReports: https://github.com/kc-eng/ggplt/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    ggplot2,
+    dplyr,
+    reshape2,
+    MASS,
+    pROC,
+    car,
+    corrplot,
+    rattle,
+    cluster,
+    factoextra,
+    forecast,
+    TSA,
+    tseries,
+    plotly,
+    gapminder,
+    tidyverse,
+    caret,
+    ggcorrplot,
+    moments,
+    palmerpenguins,
+    zoo
