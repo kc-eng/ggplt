@@ -1,3 +1,9 @@
+#' @title Program code collection
+#' @description A collection of R program examples
+#' @name ggplt-package
+#' @docType package
+NULL
+
 #' Program code collection
 #' 
 #' A list containing various R program examples
@@ -83,7 +89,64 @@ program_code <- list(
     "  matrix = matrix_from_vector\n",
     ")\n",
     "cat(\"List:\\n\")\n",
-    "print(my_list)\n"
+    "print(my_list)\n\n",
+    "# Subsetting the list (extracting numeric and logical parts)\n",
+    "subset_numeric <- my_list$numbers\n",
+    "cat(\"Subset (numeric part of the list):\\n\", subset_numeric, \"\\n\")\n\n",
+    "subset_logical <- my_list$logical_values\n",
+    "cat(\"Subset (logical part of the list):\\n\", subset_logical, \"\\n\")\n\n",
+    "# Modify elements in the list (replace the second character with \"Z\")\n",
+    "my_list$characters[2] <- \"Z\"\n",
+    "cat(\"Modified list of characters:\\n\", my_list$characters, \"\\n\")\n\n",
+    "# Apply a function to the numeric part of the list\n",
+    "squared_numbers <- my_list$numbers^2\n",
+    "cat(\"Squared numbers:\\n\", squared_numbers, \"\\n\")\n\n",
+    "# Create a data frame\n",
+    "df <- data.frame(\n",
+    "  ID = 1:20,\n",
+    "  Age = sample(18:65, 20, replace = TRUE),\n",
+    "  Score = runif(20, min = 50, max = 100),\n",
+    "  Passed = sample(c(TRUE, FALSE), 20, replace = TRUE)\n",
+    ")\n",
+    "cat(\"Data frame:\\n\")\n",
+    "print(df)\n\n",
+    "# Filter the data frame\n",
+    "filtered_df <- subset(df, Age > 30 & Score > 70)\n",
+    "cat(\"Filtered data frame (Age > 30 and Score > 70):\\n\")\n",
+    "print(filtered_df)\n\n",
+    "# Calculate statistics\n",
+    "mean_age <- mean(df$Age)\n",
+    "sum_age <- sum(df$Age)\n",
+    "var_age <- var(df$Age)\n\n",
+    "mean_score <- mean(df$Score)\n",
+    "sum_score <- sum(df$Score)\n",
+    "var_score <- var(df$Score)\n\n",
+    "cat(\"Summary statistics for Age column:\\n\")\n",
+    "cat(\"Mean Age:\", mean_age, \"\\n\")\n",
+    "cat(\"Sum of Age:\", sum_age, \"\\n\")\n",
+    "cat(\"Variance of Age:\", var_age, \"\\n\")\n\n",
+    "cat(\"Summary statistics for Score column:\\n\")\n",
+    "cat(\"Mean Score:\", mean_score, \"\\n\")\n",
+    "cat(\"Sum of Score:\", sum_score, \"\\n\")\n",
+    "cat(\"Variance of Score:\", var_score, \"\\n\")\n\n",
+    "# Handle missing values\n",
+    "df$Score[sample(1:20, 5)] <- NA\n",
+    "cat(\"Data frame with missing values:\\n\")\n",
+    "print(df)\n\n",
+    "# Replace NA values\n",
+    "df$Score[is.na(df$Score)] <- mean(df$Score, na.rm = TRUE)\n",
+    "cat(\"Data frame after imputation of missing values:\\n\")\n",
+    "print(df)\n\n",
+    "# Group statistics\n",
+    "library(dplyr)\n",
+    "grouped_stats <- df %>%\n",
+    "  group_by(Passed) %>%\n",
+    "  summarise(\n",
+    "    mean_score = mean(Score, na.rm = TRUE),\n",
+    "    mean_age = mean(Age)\n",
+    "  )\n",
+    "cat(\"Grouped statistics by Passed status:\\n\")\n",
+    "print(grouped_stats)\n"
   ),
 
   # Program 3: Statistical Analysis
@@ -416,6 +479,11 @@ program_code <- list(
 #' Print a specific program
 #' 
 #' @param program_name Name of the program to print
+#' @return Prints the specified program code
+#' @examples
+#' \dontrun{
+#' print_program("program1")
+#' }
 #' @export
 print_program <- function(program_name) {
   if (!program_name %in% names(program_code)) {

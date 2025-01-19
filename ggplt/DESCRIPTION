@@ -2,7 +2,7 @@ Package: ggplt
 Title: Collection of R Program Examples
 Version: 0.0.0.9000
 Authors@R: 
-    person("Your", "Name", , "your.email@example.com", role = c("aut", "cre"))
+    person("KC", "Eng", , "your.email@example.com", role = c("aut", "cre"))
 Description: A collection of R program examples for learning and reference.
 License: MIT + file LICENSE
 URL: https://github.com/kc-eng/ggplt

@@ -4,3 +4,7 @@
 .Ruserdata
 *.Rproj
 .DS_Store
+.gradle/
+inst/doc
+/doc/
+/Meta/
